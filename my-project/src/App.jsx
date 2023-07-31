@@ -2,6 +2,8 @@ import './App.css'
 import HelloWorld from './components/HelloWorld'
 import SayMyName from './components/SayMyName.tsx'
 import { Person } from './components/Person.tsx'
+import Phrase from './components/Phrase'
+import { List } from './components/List.tsx'
 
 function App() {
   const name = 'Valentim'
@@ -16,6 +18,7 @@ function App() {
   return (
     <main className="App">
       <h1>Alterando JSX</h1>
+      <Phrase></Phrase>
       <h2>Olá, {newName}</h2>
       <h3>Soma, {sum(2, 2)}</h3>
       <img src={url} alt="Minha imagem" />
@@ -27,6 +30,7 @@ function App() {
       <hr />
       <Person name="Maria" age="20" profession="Enfermeira" photo={url}>
       </Person>
+      <List></List>
     </main>
   )
 }

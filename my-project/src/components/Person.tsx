@@ -7,7 +7,8 @@ interface PersonProps {
   profession: string
 }
 
-export const Person: React.FC<PersonProps> = ({name, photo, age, profession}) => {
+export const Person: React.FC<PersonProps> =
+    ({name ='Valentim', photo, age, profession}) => {
   return (
     <div>
       <img src={photo} alt="Foto da pessoa" />

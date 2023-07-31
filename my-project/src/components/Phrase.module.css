@@ -1,0 +1,9 @@
+.phraseContainer {
+  background-color: #333;
+  border: 1px solid #111;
+}
+
+.phraseContent {
+  color: #fff;
+  background-color: #333;
+}
