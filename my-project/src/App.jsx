@@ -4,6 +4,8 @@ import SayMyName from './components/SayMyName.tsx'
 import { Person } from './components/Person.tsx'
 import Phrase from './components/Phrase'
 import { List } from './components/List.tsx'
+import { Event } from './components/Event.tsx'
+import { Form } from './components/Form.tsx'
 
 function App() {
   const name = 'Valentim'
@@ -30,7 +32,13 @@ function App() {
       <hr />
       <Person name="Maria" age="20" profession="Enfermeira" photo={url}>
       </Person>
+      <hr />
       <List></List>
+      <hr />
+      <Event num={1}></Event>
+      <Event num={2}></Event>
+      <hr />
+      <Form></Form>
     </main>
   )
 }
