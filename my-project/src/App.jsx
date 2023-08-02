@@ -6,6 +6,7 @@ import Phrase from './components/Phrase'
 import { List } from './components/List.tsx'
 import { Event } from './components/Event.tsx'
 import { Form } from './components/Form.tsx'
+import { Conditional } from './components/Conditional.tsx'
 
 function App() {
   const name = 'Valentim'
@@ -39,6 +40,8 @@ function App() {
       <Event num={2}></Event>
       <hr />
       <Form></Form>
+      <hr />
+      <Conditional></Conditional>
     </main>
   )
 }
