@@ -7,6 +7,7 @@ import { List } from './components/List.tsx'
 import { Event } from './components/Event.tsx'
 import { Form } from './components/Form.tsx'
 import { Conditional } from './components/Conditional.tsx'
+import { ListRender } from './components/ListRender.tsx'
 
 function App() {
   const name = 'Valentim'
@@ -17,6 +18,8 @@ function App() {
   }
 
   const url = 'https://via.placeholder.com/150'
+
+  const items = ['React', 'Vue', 'Angular']
 
   return (
     <main className="App">
@@ -42,6 +45,13 @@ function App() {
       <Form></Form>
       <hr />
       <Conditional></Conditional>
+      <hr />
+      <h2>Renderização de listas</h2>
+      <ListRender items={items}></ListRender>
+      <ListRender items={[]}></ListRender>
+      <hr />
+      <h2>State Lift</h2>
+      
     </main>
   )
 }
