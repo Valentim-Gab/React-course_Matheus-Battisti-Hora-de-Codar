@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "./event/Button.tsx";
+import { Button } from "./Button.tsx";
 
 export const Event: React.FC<{num: number}> = ({num}) => {
   const myEvent = () => {

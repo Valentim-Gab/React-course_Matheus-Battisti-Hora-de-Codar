@@ -1,16 +1,15 @@
 import './App.css'
 import HelloWorld from './components/HelloWorld'
-import SayMyName from './components/SayMyName.tsx'
-import { Person } from './components/Person.tsx'
-import Phrase from './components/Phrase'
-import { List } from './components/List.tsx'
-import { Event } from './components/Event.tsx'
-import { Form } from './components/Form.tsx'
-import { Conditional } from './components/Conditional.tsx'
-import { ListRender } from './components/ListRender.tsx'
+import SayMyName from './components/props/SayMyName.tsx'
+import { Person } from './components/fragments/Person.tsx'
+import { List } from './components/props/List.tsx'
+import { Event } from './components/event/Event.tsx'
+import { Form } from './components/use-state/Form.tsx'
+import { Conditional } from './components/conditional/Conditional.tsx'
+import { ListRender } from './components/render/ListRender.tsx'
 import { useState } from 'react'
-import { YourName } from './components/YourName.tsx'
-import { Saludation } from './components/Saludation.tsx'
+import { YourName } from './components/use-state/state-lift/YourName.tsx'
+import { Saludation } from './components/use-state/state-lift/Saludation.tsx'
 
 function App() {
   //Variáveis e JS no HTML
@@ -31,7 +30,6 @@ function App() {
   return (
     <main className="App">
       <h1>Alterando JSX</h1>
-      <Phrase></Phrase>
       <h2>Olá, {newName}</h2>
       <h3>Soma, {sum(2, 2)}</h3>
       <img src={url} alt="Minha imagem" />

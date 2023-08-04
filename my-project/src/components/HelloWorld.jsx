@@ -1,4 +1,4 @@
-import Phrase from "./Phrase"
+import Phrase from "./css-component/Phrase"
 
 function HelloWorld() {
   return (

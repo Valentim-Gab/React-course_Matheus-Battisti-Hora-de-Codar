@@ -8,11 +8,11 @@ interface YourNameProps {
 export const YourName: React.FC<YourNameProps> = ({ setYourName }) => {
   return (
     <div>
-      <label htmlFor="name">Digite o seu nome: </label>
+      <label htmlFor="yourName">Digite o seu nome: </label>
       <input
         type="text"
-        name="name"
-        id="name"
+        name="yourName"
+        id="yourName"
         placeholder="Qual é o seu nome?"
         onChange={e => setYourName(e.target.value)}
       />
