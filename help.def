@@ -9,3 +9,7 @@ React Router {
 React Icons {
   npm install react-icons
 }
+
+Json server {
+  npm install json-server
+}
