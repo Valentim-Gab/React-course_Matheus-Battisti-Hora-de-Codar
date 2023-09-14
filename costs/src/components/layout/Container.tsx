@@ -8,8 +8,8 @@ interface ContainerProps {
 
 export const Container: React.FC<ContainerProps> = (props) => {
   return (
-    <main className={`${styles.container} ${styles[props.customClass]}`}>
+    <div className={`${styles.container} ${styles[props.customClass]}`}>
       { props.children }
-    </main>
+    </div>
   )
 }
