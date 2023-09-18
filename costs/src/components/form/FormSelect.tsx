@@ -1,11 +1,15 @@
 import React from 'react'
 import styles from './FormSelect.module.css'
 
+interface Option {
+  id: number,
+  name: string
+}
 interface FormSelectProps {
   text: React.ReactNode,
   name: string,
   value: string,
-  options: string[],
+  options: Option[],
   handleOnChange: React.ChangeEventHandler<HTMLInputElement>
 }
 
@@ -15,8 +19,9 @@ export const FormSelect: React.FC<FormSelectProps> =
     <div className={styles.form_control}>
       <label htmlFor={name}>{text}</label>
       <select name={name} id={name}>
-        <option selected disabled>Selecione uma opção</option>
-        <option value="a">Teste 1</option>
+        {options.map(option => (
+          <option value={option.id} key={option.id}>{option.name}</option>
+        ))}
       </select>
     </div>
   )

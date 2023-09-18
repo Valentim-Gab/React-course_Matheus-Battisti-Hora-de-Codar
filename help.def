@@ -13,3 +13,7 @@ React Icons {
 Json server {
   npm install json-server
 }
+
+Dotenv {
+  npm install dotenv @types/dotenv --save
+}
