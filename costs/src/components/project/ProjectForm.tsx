@@ -32,6 +32,10 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({isEdit, handleSubmit, p
 
   const submit = (e) => {
     e.preventDefault()
+
+    if (!project.category)
+      project.category = categories[0]
+
     handleSubmit(project)
   }
 
@@ -73,7 +77,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({isEdit, handleSubmit, p
           text="Selecione a categoria"
           options={categories}
           handleOnChange={handleCategory}
-          value={project.category ?? ''}
+          value={project.category ? project.category.id : ''}
         />
       </div>
       <SubmitButton>{btnSubmitText}</SubmitButton>
