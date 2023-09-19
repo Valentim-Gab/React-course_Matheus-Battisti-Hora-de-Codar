@@ -1,16 +1,12 @@
 import React from 'react'
+import { Category } from '../../interfaces/Category'
 import styles from './FormSelect.module.css'
-
-interface Option {
-  id: number,
-  name: string
-}
 interface FormSelectProps {
   text: React.ReactNode,
   name: string,
   value: string,
-  options: Option[],
-  handleOnChange: React.ChangeEventHandler<HTMLInputElement>
+  options: Category[],
+  handleOnChange: React.ChangeEventHandler<HTMLSelectElement>
 }
 
 export const FormSelect: React.FC<FormSelectProps> =
@@ -18,7 +14,12 @@ export const FormSelect: React.FC<FormSelectProps> =
   return (
     <div className={styles.form_control}>
       <label htmlFor={name}>{text}</label>
-      <select name={name} id={name}>
+      <select
+        name={name}
+        id={name}
+        onChange={handleOnChange}
+        value={value || ''}
+      >
         {options.map(option => (
           <option value={option.id} key={option.id}>{option.name}</option>
         ))}
