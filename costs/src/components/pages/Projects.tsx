@@ -1,17 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Messages } from '../layout/Messages.tsx'
 import { Container } from '../layout/Container.tsx'
 import { LinkButton } from '../layout/LinkButton.tsx'
+import { ProjectCard } from '../project/ProjectCard.tsx'
+import Project from '../../interfaces/Project.ts'
 import styles from './Projects.module.css'
 
 export const Projects = () => {
+  const apiUrl = process.env.REACT_APP_API_URL
+  const [projects, setProjects] = useState()
   const location = useLocation()
   let message = ''
   
   if (location.state)
     message = location.state.message
 
+  useEffect(() => {
+    fetch(`${apiUrl}/projects`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        setProjects(data)
+      })
+      .catch(err => console.log(err))
+  }, [apiUrl])
+  
   return (
     <div className={styles.project_container}>
       {message && <Messages type="success" msg={message} />}
@@ -20,7 +38,13 @@ export const Projects = () => {
         <LinkButton to="/newproject">Criar Projeto</LinkButton>
       </div>
       <Container customClass="start">
-        <p>projetos...</p>
+        {(projects && projects.length > 0) &&
+          projects.map(project =>
+            <ProjectCard
+              project={project}
+              key={project.id}
+            />
+          )}
       </Container>
     </div>
   )

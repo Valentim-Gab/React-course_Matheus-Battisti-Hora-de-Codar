@@ -40,14 +40,19 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({isEdit, handleSubmit, p
   }
 
   function handleChange(e) {
-    setProject({ ...project, [e.target.name]: e.target.value })
+    let { name, value } = e.target
+
+    if (!isNaN(value))
+      value = parseFloat(value)
+
+    setProject({ ...project, [name]: value })
   }
 
   function handleCategory(e) {
     setProject({
       ...project,
       category: {
-        id: e.target.value,
+        id: parseFloat(e.target.value),
         name: e.target.options[e.target.options.selectedIndex].text,
       },
     })
