@@ -43,6 +43,17 @@
       "cost": 0,
       "services": [],
       "id": 4
+    },
+    {
+      "name": "Teste 05",
+      "category": {
+        "id": 3,
+        "name": "Design"
+      },
+      "budget": 21445,
+      "cost": 0,
+      "services": [],
+      "id": 5
     }
   ],
   "categories": [

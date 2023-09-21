@@ -3,6 +3,7 @@ import { Project } from '../../interfaces/Project'
 import { FormInput } from '../form/FormInput.tsx'
 import { FormSelect } from '../form/FormSelect.tsx'
 import { SubmitButton } from '../form/SubmitButton.tsx'
+import { CategoryService } from '../../services/CategoryService.ts'
 import styles from './ProjectForm.module.css'
 
 interface ProjectFormProps {
@@ -13,22 +14,16 @@ interface ProjectFormProps {
 
 export const ProjectForm: React.FC<ProjectFormProps> = ({isEdit, handleSubmit, projectData}) => {
   let btnSubmitText = (isEdit) ? 'Editar Projeto' : 'Criar Projeto'
-  const apiUrl = process.env.REACT_APP_API_URL
   const [categories, setCategories] = useState([])
   const [project, setProject] = useState(projectData || {})
-
+  
   useEffect(() => {
-    fetch(`${apiUrl}/categories`, {
-      method: "GET",
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then((resp) => resp.json())
-      .then((data) => {
-        setCategories(data)
-      })
-      .catch((err) => console.log(err))
-  }, [apiUrl])
+    const categoryService = new CategoryService()
+
+    categoryService.getCategories().then((data) => {
+      setCategories(data)
+    }).catch((err) => console.log(err))
+  }, [])
 
   const submit = (e) => {
     e.preventDefault()

@@ -2,27 +2,20 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Project } from '../../interfaces/Project'
 import { ProjectForm } from '../project/ProjectForm.tsx'
+import { ProjectService } from '../../services/ProjectService.ts'
 import styles from './NewProject.module.css'
 
 export const NewProject = () => {
   const navigate = useNavigate()
-  const apiUrl = process.env.REACT_APP_API_URL
+  const projectService = new ProjectService;
 
   function createPost(project: Project) {
     project.cost = 0
     project.services = []
 
-    fetch(`${apiUrl}/projects`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(project)
-    }).then(resp => resp.json())
-      .then(data => {
-        navigate('/projects', { state: { message: 'Projeto criado com sucesso!' }})
-      })
-      .catch(err => console.log(err))
+    projectService.save(project).then(data => {
+      navigate('/projects', { state: { message: 'Projeto criado com sucesso!' }})
+    }).catch(err => console.log(err))
   }
 
   return (

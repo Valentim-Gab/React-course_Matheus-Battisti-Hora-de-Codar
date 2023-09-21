@@ -5,48 +5,34 @@ import { Container } from '../layout/Container.tsx'
 import { Loading } from '../layout/Loading.tsx'
 import { LinkButton } from '../layout/LinkButton.tsx'
 import { ProjectCard } from '../project/ProjectCard.tsx'
-import Project from '../../interfaces/Project.ts'
+import { ProjectService } from '../../services/ProjectService.ts'
 import styles from './Projects.module.css'
 
 export const Projects = () => {
-  const apiUrl = process.env.REACT_APP_API_URL
   const [projects, setProjects] = useState()
   const [removeLoading, setRemoveLoading] = useState(false)
   const [projectMessage, setProjectMessage] = useState('')
   const location = useLocation()
+  const projectService = new ProjectService();
   let message = ''
   
   if (location.state)
     message = location.state.message
 
   useEffect(() => {
-    fetch(`${apiUrl}/projects`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(resp => resp.json())
-      .then(data => {
-        setProjects(data)
-        setRemoveLoading(true)
-      })
-      .catch(err => console.log(err))
-  }, [apiUrl])
+    projectService.getProjects().then(data => {
+      setProjects(data)
+      setRemoveLoading(true)
+    }).catch(err => console.log(err))
+  }, [])
 
   function removeProject(id: number) {
-    fetch(`${apiUrl}/projects/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(resp => resp.json())
-      .then(() => {
-        setProjects(projects.filter((project) => project.id !== id))
-        setProjectMessage('Projeto removido com sucesso!')
-      })
-      .catch(err => console.log(err))
+    projectService.delete(id).then(() => {
+      setProjects(projects.filter(
+          project => project.id !== id
+        ))
+      setProjectMessage('Projeto removido com sucesso!')
+    }).catch(err => console.log(err))
   }
   
   return (
