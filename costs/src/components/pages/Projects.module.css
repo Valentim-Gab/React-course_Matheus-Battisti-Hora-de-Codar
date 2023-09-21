@@ -7,3 +7,7 @@
   justify-content: space-between;
   margin-bottom: 2em;
 }
+
+.no_projects {
+  margin: 0 auto;
+}

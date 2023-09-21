@@ -61,7 +61,7 @@
   margin-top: 1.2em;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: end;
   gap: 1em;
 }
 
@@ -70,7 +70,7 @@
   border: none;
   background-color: #fff;
   color: #222;
-  font-size: .9em;
+  font-size: .8em;
   padding: .6em 1em;
   cursor: pointer;
   border: 1px solid #222;
