@@ -11,3 +11,11 @@
 .no_projects {
   margin: 0 auto;
 }
+
+.projects {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1em;
+}

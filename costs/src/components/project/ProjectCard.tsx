@@ -33,7 +33,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({project, handleRemove})
           {categoryName}
         </p>
         <div className={styles.actions}>
-          <Link to="/">
+          <Link to={`/project/${project.id}`}>
             <BsPencil />
             Editar
           </Link>

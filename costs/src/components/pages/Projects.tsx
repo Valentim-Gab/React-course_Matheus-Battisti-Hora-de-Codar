@@ -44,18 +44,20 @@ export const Projects = () => {
         <LinkButton to="/newproject">Criar Projeto</LinkButton>
       </div>
       <Container customClass="start">
-        {projects && projects.length > 0 &&
-          projects.map(project =>
-            <ProjectCard
-              project={project}
-              key={project.id}
-              handleRemove={removeProject}
-            />
-          )}
-          {!removeLoading && <Loading />}
-          {removeLoading && projects.length === 0 && (
-            <h3 className={styles.no_projects}>Não há projetos cadastrados!</h3>
-          )}
+        <div className={styles.projects}>
+          {projects && projects.length > 0 &&
+            projects.map(project =>
+              <ProjectCard
+                project={project}
+                key={project.id}
+                handleRemove={removeProject}
+              />
+            )}
+            {!removeLoading && <Loading />}
+            {removeLoading && projects.length === 0 && (
+              <h3 className={styles.no_projects}>Não há projetos cadastrados!</h3>
+            )}
+        </div>
       </Container>
     </div>
   )
