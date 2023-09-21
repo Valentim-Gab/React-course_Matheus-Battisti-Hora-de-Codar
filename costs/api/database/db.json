@@ -24,7 +24,7 @@
     },
     {
       "name": "Teste 03",
-      "budget": 42100,
+      "budget": 122000,
       "category": {
         "id": 3,
         "name": "Design"

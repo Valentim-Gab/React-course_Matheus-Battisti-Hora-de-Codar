@@ -16,6 +16,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({project, handleRemove})
     currency: 'BRL',
     minimumFractionDigits: 2,
   })
+  const remove = (e) => {
+    e.preventDefault()
+    handleRemove(project.id)
+  }
 
   return (
     <div className={styles.project_card}>
@@ -33,7 +37,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({project, handleRemove})
             <BsPencil />
             Editar
           </Link>
-          <button>
+          <button onClick={remove}>
             <BsFillTrashFill />
             Excluir
           </button>

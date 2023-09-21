@@ -12,6 +12,7 @@ export const Projects = () => {
   const apiUrl = process.env.REACT_APP_API_URL
   const [projects, setProjects] = useState()
   const [removeLoading, setRemoveLoading] = useState(false)
+  const [projectMessage, setProjectMessage] = useState('')
   const location = useLocation()
   let message = ''
   
@@ -32,10 +33,26 @@ export const Projects = () => {
       })
       .catch(err => console.log(err))
   }, [apiUrl])
+
+  function removeProject(id: number) {
+    fetch(`${apiUrl}/projects/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(resp => resp.json())
+      .then(() => {
+        setProjects(projects.filter((project) => project.id !== id))
+        setProjectMessage('Projeto removido com sucesso!')
+      })
+      .catch(err => console.log(err))
+  }
   
   return (
     <div className={styles.project_container}>
       {message && <Messages type="success" msg={message} />}
+      {projectMessage && <Messages type="success" msg={projectMessage} />}
       <div className={styles.title_container}>
         <h1>Meus Projetos</h1>
         <LinkButton to="/newproject">Criar Projeto</LinkButton>
@@ -46,6 +63,7 @@ export const Projects = () => {
             <ProjectCard
               project={project}
               key={project.id}
+              handleRemove={removeProject}
             />
           )}
           {!removeLoading && <Loading />}
