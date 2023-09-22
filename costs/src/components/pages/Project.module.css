@@ -65,10 +65,15 @@
   justify-content: space-between;
 }
 
-.service_form_container .service_form_body {
-  
-}
-
 .services_container {
   padding: 2em 0;
+}
+
+.services_container .services_body {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1em;
+  width: 100%;
 }

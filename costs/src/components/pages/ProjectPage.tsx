@@ -8,6 +8,7 @@ import { ProjectService } from '../../services/ProjectService.ts'
 import { ProjectForm } from '../project/ProjectForm.tsx'
 import { Messages } from '../layout/Messages.tsx'
 import { ServiceForm } from '../service-component/ServiceForm.tsx'
+import { ServiceCard } from '../service-component/ServiceCard.tsx'
 import { BsPencil, BsXLg, BsPlusLg } from 'react-icons/bs'
 import { Project } from '../../interfaces/Project.ts'
 
@@ -94,6 +95,10 @@ export const ProjectPage = () => {
     }
   }
 
+  function removeService() {
+
+  }
+
   return (
     <section className={styles.project}>
       {project.id ? (
@@ -105,11 +110,11 @@ export const ProjectPage = () => {
               <button className={styles.btn} onClick={toggleProjectForm}>
                 {showProjectForm ? (
                   <>
-                    Fechar <BsXLg />
+                    <BsXLg />Fechar
                   </>
                 ) : (
                   <>
-                    Editar Projeto <BsPencil />
+                    <BsPencil />Editar Projeto
                   </>
                 )}
               </button>
@@ -141,11 +146,11 @@ export const ProjectPage = () => {
                 <button className={styles.btn} onClick={toggleServiceForm}>
                   {showServiceForm ? (
                     <>
-                      Fechar <BsXLg />
+                      <BsXLg />Fechar 
                     </>
                   ) : (
                     <>
-                      Adicionar Serviço <BsPlusLg />
+                      <BsPlusLg />Adicionar Serviço 
                     </>
                   )}
                 </button>
@@ -163,7 +168,20 @@ export const ProjectPage = () => {
             <div className={styles.services_container}>
               <h2>Serviços</h2>
               <Container customClass='start'>
-                <p>servicos</p>
+                {project.services && project.services.length > 0 && (
+                  <div className={styles.services_body}>
+                    {project.services.map(service => (
+                      <ServiceCard
+                        key={service.id}
+                        serviceData={service}
+                        handleRemove={removeService}
+                      />
+                    ))}
+                  </div>
+                )}
+                {(!project.services || project.services.length === 0) && (
+                  <h4>Não há serviços cadastrados!</h4>
+                )}
               </Container>
             </div>
           </Container>

@@ -7,7 +7,7 @@
         "id": 2,
         "name": "Desenvolvimento"
       },
-      "cost": 1131,
+      "cost": 1254,
       "services": [
         {
           "name": "Serviço 01",
@@ -20,6 +20,12 @@
           "cost": 900,
           "description": "Uma descrição",
           "id": "71c82cd3-5a99-4a53-aab0-18a6ec648fd0"
+        },
+        {
+          "name": "Serviço 03",
+          "cost": 123,
+          "description": "12415wagfsadgsdg",
+          "id": "16262e38-2f94-4540-a75d-89c38187a6cd"
         }
       ],
       "id": 1
@@ -31,8 +37,21 @@
         "id": 1,
         "name": "infra"
       },
-      "cost": 0,
-      "services": [],
+      "cost": 3500,
+      "services": [
+        {
+          "cost": 3000,
+          "name": "Serviço 01 Infra",
+          "description": "Apenas o dele",
+          "id": "38166558-ee87-487e-8e60-dd4fce42aec1"
+        },
+        {
+          "name": "Contratar dev php",
+          "cost": 500,
+          "description": "Vai criar a função de envio de e-mails",
+          "id": "070136fc-7cac-4d0e-b469-2843d53b921e"
+        }
+      ],
       "id": 2
     },
     {
