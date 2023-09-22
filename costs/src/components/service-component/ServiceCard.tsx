@@ -11,7 +11,8 @@ export interface ServiceCardProps {
 export const ServiceCard: React.FC<ServiceCardProps> = ({ serviceData, handleRemove }) => {
 
   const remove = (e) => {
-
+    e.preventDefault()   
+    handleRemove(serviceData)
   } 
 
   return (

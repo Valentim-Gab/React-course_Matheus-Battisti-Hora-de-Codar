@@ -11,6 +11,7 @@ import { ServiceForm } from '../service-component/ServiceForm.tsx'
 import { ServiceCard } from '../service-component/ServiceCard.tsx'
 import { BsPencil, BsXLg, BsPlusLg } from 'react-icons/bs'
 import { Project } from '../../interfaces/Project.ts'
+import { Service } from '../../interfaces/Service.ts';
 
 export const ProjectPage = () => {
   const { id } = useParams()
@@ -95,8 +96,23 @@ export const ProjectPage = () => {
     }
   }
 
-  function removeService() {
+  function removeService(service: Service) {
+    const indexToRemove = project.services.findIndex(item => service.id === item.id);
 
+    setMessage('')
+
+    if (indexToRemove !== -1) {
+      project.cost -= service.cost;
+      project.services.splice(indexToRemove, 1);
+
+      projectService.update(project)
+        .then(data => {
+          setProject(data);
+          setMessage('Serviço removido com sucesso!')
+          setTypeMessage('success')
+        })
+        .catch(err => console.error(err));
+    }
   }
 
   return (
