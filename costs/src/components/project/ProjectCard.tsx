@@ -11,11 +11,6 @@ interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({project, handleRemove}) => {
   const categoryName = project.category.name
-  const formatedBudget = project.budget.toLocaleString('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-    minimumFractionDigits: 2,
-  })
   const remove = (e) => {
     e.preventDefault()
     handleRemove(project.id)
@@ -26,7 +21,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({project, handleRemove})
       <h4>{project.name}</h4>
       <div className={styles.project_card_body}>
         <p>
-          <span>Orçamento:</span> {formatedBudget}
+          <span>Orçamento:</span> {formatCurrency(project.budget)}
         </p>
         <p className={styles.category_text}>
           <span className={`${styles[categoryName.toLowerCase()]}`}></span>
@@ -45,4 +40,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({project, handleRemove})
       </div>
     </div>
   )
+}
+
+function formatCurrency(currency: number) {
+  if (!currency) return 0
+
+  return currency.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2,
+  })
 }

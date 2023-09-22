@@ -7,7 +7,7 @@ import styles from './NewProject.module.css'
 
 export const NewProject = () => {
   const navigate = useNavigate()
-  const projectService = new ProjectService;
+  const projectService = new ProjectService()
 
   function createPost(project: Project) {
     project.cost = 0

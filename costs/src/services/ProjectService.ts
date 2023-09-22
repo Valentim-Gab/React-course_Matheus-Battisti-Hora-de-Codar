@@ -1,4 +1,4 @@
-import { Project } from '../interfaces/Project'
+import { Project } from '../interfaces/Project.ts'
 
 export class ProjectService {
   private apiUrl = process.env.REACT_APP_API_URL

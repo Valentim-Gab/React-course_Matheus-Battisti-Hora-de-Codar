@@ -57,11 +57,11 @@
     },
     {
       "category": {
-        "id": 4,
-        "name": "Planejamento"
+        "id": 2,
+        "name": "Desenvolvimento"
       },
-      "name": "Teste 07",
-      "budget": 9820,
+      "name": "Teste 06 edt",
+      "budget": 1000,
       "cost": 0,
       "services": [],
       "id": 6

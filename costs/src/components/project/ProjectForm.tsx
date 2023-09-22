@@ -9,7 +9,7 @@ import styles from './ProjectForm.module.css'
 interface ProjectFormProps {
   isEdit: boolean,
   handleSubmit: (project: Project) => void,
-  projectData: Project
+  projectData?: Project
 }
 
 export const ProjectForm: React.FC<ProjectFormProps> = ({isEdit, handleSubmit, projectData}) => {

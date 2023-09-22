@@ -1,4 +1,4 @@
-import React, { ReactComponentElement, ReactEventHandler } from 'react'
+import React from 'react'
 import styles from './FormInput.module.css'
 
 interface FormInputProps {
@@ -20,6 +20,7 @@ export const FormInput: React.FC<FormInputProps> =
         name={name}
         placeholder={placeholder}
         onChange={handleOnChange}
+        value={value.toString()}
       />
     </div>
   )

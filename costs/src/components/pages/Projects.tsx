@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Messages } from '../layout/Messages.tsx'
 import { Container } from '../layout/Container.tsx'
@@ -13,7 +13,7 @@ export const Projects = () => {
   const [removeLoading, setRemoveLoading] = useState(false)
   const [projectMessage, setProjectMessage] = useState('')
   const location = useLocation()
-  const projectService = new ProjectService();
+  const projectService = useMemo(() => new ProjectService(), [])
   let message = ''
   
   if (location.state)
@@ -24,13 +24,13 @@ export const Projects = () => {
       setProjects(data)
       setRemoveLoading(true)
     }).catch(err => console.log(err))
-  }, [])
+  }, [projectService])
 
   function removeProject(id: number) {
     projectService.delete(id).then(() => {
       setProjects(projects.filter(
-          project => project.id !== id
-        ))
+        project => project.id !== id
+      ))
       setProjectMessage('Projeto removido com sucesso!')
     }).catch(err => console.log(err))
   }
