@@ -7,7 +7,7 @@ import { Container } from '../layout/Container.tsx'
 import { ProjectService } from '../../services/ProjectService.ts'
 import { ProjectForm } from '../project/ProjectForm.tsx'
 import { Messages } from '../layout/Messages.tsx'
-import { BsPencil, BsXLg} from 'react-icons/bs'
+import { BsPencil, BsXLg, BsPlusLg } from 'react-icons/bs'
 
 export const Project = () => {
   const { id } = useParams()
@@ -15,6 +15,7 @@ export const Project = () => {
   const [showProjectForm, setShowProjectForm] = useState(false)
   const [message, setMessage] = useState()
   const [typeMessage, setTypeMessage] = useState()
+  const [showServiceForm, setShowServiceForm] = useState(false)
   const projectService = useMemo(() => new ProjectService(), [])
 
   useEffect(() => {
@@ -26,6 +27,8 @@ export const Project = () => {
   }, [id, projectService])
 
   function updateProject(project) {
+    setMessage('')
+
     if (project.budget < project.cost) {
       setMessage('Orçamento deve ser maior que o custo')
       setTypeMessage('error')
@@ -47,6 +50,10 @@ export const Project = () => {
 
   function toggleProjectForm() {
     setShowProjectForm(!showProjectForm)
+  }
+
+  function toggleServiceForm() {
+    setShowServiceForm(!showServiceForm)
   }
 
   return (
@@ -89,6 +96,33 @@ export const Project = () => {
                   />
                 </div>
               )}
+            </div>
+            <div className={styles.service_form_container}>
+              <div className={styles.service_form_header}>
+                <h2>Adicione um serviço:</h2>
+                <button className={styles.btn} onClick={toggleServiceForm}>
+                  {showServiceForm ? (
+                    <>
+                      Fechar <BsXLg />
+                    </>
+                  ) : (
+                    <>
+                      Adicionar Serviço <BsPlusLg />
+                    </>
+                  )}
+                </button>
+              </div>
+              <div className={styles.service_form_body}>
+                {showServiceForm && (
+                  <p>teste</p>
+                )}
+              </div>
+            </div>
+            <div className={styles.services_container}>
+              <h2>Serviços</h2>
+              <Container customClass='start'>
+                <p>servicos</p>
+              </Container>
             </div>
           </Container>
         </div>

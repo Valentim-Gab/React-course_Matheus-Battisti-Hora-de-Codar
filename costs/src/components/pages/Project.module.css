@@ -23,8 +23,7 @@
   font-weight: bold;
 }
 
-.details_container,
-.service_form_container {
+.details_container {
   border-bottom: 1px solid #7a7a7a;
   display: flex;
   justify-content: space-between;
@@ -53,4 +52,22 @@
 
 .project_info {
   width: 100%;
+}
+
+.service_form_container {
+  padding: 2em 0;
+  border-bottom: 1px solid #7a7a7a;
+}
+
+.service_form_container .service_form_header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.service_form_container .service_form_body {
+  
+}
+
+.services_container {
+  padding: 2em 0;
 }
