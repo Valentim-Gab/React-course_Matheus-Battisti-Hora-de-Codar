@@ -19,3 +19,7 @@
   flex-wrap: wrap;
   gap: 1em;
 }
+
+.projects h3 {
+  margin: 0 auto;
+}
