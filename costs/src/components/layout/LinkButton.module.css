@@ -1,0 +1,11 @@
+.btn_link {
+  background-color: #222;
+  color: #fff;
+  padding: 0.5em 1em;
+  transition: .4s;
+  border-radius: .2em;
+}
+
+.btn_link:hover {
+  color: #ffbb33;
+}

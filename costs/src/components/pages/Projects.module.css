@@ -1,0 +1,25 @@
+.project_container {
+  padding: 2em;
+}
+
+.title_container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2em;
+}
+
+.no_projects {
+  margin: 0 auto;
+}
+
+.projects {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.projects h3 {
+  margin: 0 auto;
+}

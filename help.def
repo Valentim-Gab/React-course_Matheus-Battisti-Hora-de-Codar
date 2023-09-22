@@ -1,0 +1,19 @@
+Dicas {
+  "rafc" para gerar components TSX
+}
+
+React Router {
+  npm install react-router-dom
+}
+
+React Icons {
+  npm install react-icons
+}
+
+Json server {
+  npm install json-server
+}
+
+Dotenv {
+  npm install dotenv @types/dotenv --save
+}

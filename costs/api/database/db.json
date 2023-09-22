@@ -1,0 +1,101 @@
+{
+  "projects": [
+    {
+      "name": "Teste 01",
+      "budget": 1520,
+      "category": {
+        "id": 2,
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 1
+    },
+    {
+      "name": "Teste 02",
+      "budget": 20000,
+      "category": {
+        "id": 1,
+        "name": "infra"
+      },
+      "cost": 3500,
+      "services": [
+        {
+          "cost": 3000,
+          "name": "Serviço 01 Infra",
+          "description": "Apenas o dele",
+          "id": "38166558-ee87-487e-8e60-dd4fce42aec1"
+        },
+        {
+          "name": "Contratar dev php",
+          "cost": 500,
+          "description": "Vai criar a função de envio de e-mails",
+          "id": "070136fc-7cac-4d0e-b469-2843d53b921e"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "name": "Teste 03",
+      "budget": 122000,
+      "category": {
+        "id": 3,
+        "name": "Design"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 3
+    },
+    {
+      "name": "Teste 04",
+      "category": {
+        "id": 4,
+        "name": "Planejamento"
+      },
+      "budget": 1200,
+      "cost": 0,
+      "services": [],
+      "id": 4
+    },
+    {
+      "name": "Teste 05",
+      "category": {
+        "id": 3,
+        "name": "Design"
+      },
+      "budget": 21445,
+      "cost": 0,
+      "services": [],
+      "id": 5
+    },
+    {
+      "category": {
+        "id": 2,
+        "name": "Desenvolvimento"
+      },
+      "name": "Teste 06 edt",
+      "budget": 1000,
+      "cost": 0,
+      "services": [],
+      "id": 6
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "infra"
+    },
+    {
+      "id": 2,
+      "name": "Desenvolvimento"
+    },
+    {
+      "id": 3,
+      "name": "Design"
+    },
+    {
+      "id": 4,
+      "name": "Planejamento"
+    }
+  ]
+}
