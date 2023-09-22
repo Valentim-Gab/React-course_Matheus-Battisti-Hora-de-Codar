@@ -6,7 +6,7 @@ interface FormInputProps {
   text: React.ReactNode,
   name: string,
   placeholder: string,
-  value: string,
+  value?: string,
   handleOnChange: React.ChangeEventHandler<HTMLInputElement>
 }
 
@@ -20,7 +20,7 @@ export const FormInput: React.FC<FormInputProps> =
         name={name}
         placeholder={placeholder}
         onChange={handleOnChange}
-        value={value.toString()}
+        value={value?.toString()}
       />
     </div>
   )

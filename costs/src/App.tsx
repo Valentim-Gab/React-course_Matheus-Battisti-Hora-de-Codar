@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Container } from './components/layout/Container.tsx'
 import { Navbar } from './components/layout/Navbar.tsx'
 import { Footer } from './components/layout/Footer.tsx'
-import { routes } from './App.route.tsx'
+import { routes } from './routers/App.route.tsx'
 
 export const App = () => {
   return (

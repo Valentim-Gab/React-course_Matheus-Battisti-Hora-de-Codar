@@ -1,4 +1,5 @@
-import { Category } from "./Category"
+import { Category } from './Category'
+import { Service } from './Service'
 
 export interface Project {
   id?: number,
@@ -6,5 +7,5 @@ export interface Project {
   budget: number,
   category: Category,
   cost?: number,
-  services?: any[]
+  services?: Service[]
 }

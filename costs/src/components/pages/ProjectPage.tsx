@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
-// @ts-ignore
+import { v4 as uuidv4 } from 'uuid';
 import styles from './Project.module.css'
 import { useParams } from 'react-router-dom'
 import { Loading } from '../layout/Loading.tsx'
@@ -7,9 +7,11 @@ import { Container } from '../layout/Container.tsx'
 import { ProjectService } from '../../services/ProjectService.ts'
 import { ProjectForm } from '../project/ProjectForm.tsx'
 import { Messages } from '../layout/Messages.tsx'
+import { ServiceForm } from '../service-component/ServiceForm.tsx'
 import { BsPencil, BsXLg, BsPlusLg } from 'react-icons/bs'
+import { Project } from '../../interfaces/Project.ts'
 
-export const Project = () => {
+export const ProjectPage = () => {
   const { id } = useParams()
   const [project, setProject] = useState([])
   const [showProjectForm, setShowProjectForm] = useState(false)
@@ -54,6 +56,42 @@ export const Project = () => {
 
   function toggleServiceForm() {
     setShowServiceForm(!showServiceForm)
+  }
+  
+  function createService(project: Project) {
+    setMessage('')
+
+    if (!project.services) return false
+
+    const lastService = project.services[project.services.length - 1]
+    
+    if (lastService) {
+      lastService.id = uuidv4()
+
+      const lastServiceCost = lastService.cost
+      const newCost = (project.cost ?? 0) + lastServiceCost
+
+      if (newCost > project.budget) {
+        setMessage('Orçamento do projeto ultrapassado')
+        setTypeMessage('error')
+        setTimeout(() => {
+          setMessage('')
+        }, 3000)
+
+        project.services.pop()
+
+        return false
+      }
+
+      project.cost = newCost
+
+      projectService.update(project).then(data => {
+        setProject(data)
+        setShowServiceForm(false)
+        setMessage('Serviço adicionado')
+        setTypeMessage('success')
+      }).catch(err => console.error(err))
+    }
   }
 
   return (
@@ -114,7 +152,11 @@ export const Project = () => {
               </div>
               <div className={styles.service_form_body}>
                 {showServiceForm && (
-                  <p>teste</p>
+                  <ServiceForm
+                    handleSubmit={createService}
+                    isEdit={false}
+                    projectData={project}
+                  />
                 )}
               </div>
             </div>

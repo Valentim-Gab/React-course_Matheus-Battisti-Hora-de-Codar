@@ -1,10 +1,10 @@
 import React from 'react'
-import { Home } from './components/pages/Home.tsx'
-import { Projects } from './components/pages/Projects.tsx'
-import { Company } from './components/pages/Company.tsx'
-import { Contact } from './components/pages/Contact.tsx'
-import { NewProject } from './components/pages/NewProject.tsx'
-import { Project } from './components/pages/Project.tsx'
+import { Home } from '../components/pages/Home.tsx'
+import { Projects } from '../components/pages/Projects.tsx'
+import { Company } from '../components/pages/Company.tsx'
+import { Contact } from '../components/pages/Contact.tsx'
+import { NewProject } from '../components/pages/NewProject.tsx'
+import { ProjectPage } from '../components/pages/ProjectPage.tsx'
 
 interface Routes {
   path: string,
@@ -29,6 +29,6 @@ export const routes: Routes[] = [
     element: <NewProject />
   },{
     path: '/project/:id',
-    element: <Project />
+    element: <ProjectPage />
   }
 ]
